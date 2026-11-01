@@ -1,0 +1,170 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow | Organiza tus tareas</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <main class="container">
+
+        <!-- AUTENTICACIÓN -->
+        <section id="auth-section" class="auth-section">
+            <div class="brand">
+                <span class="brand-icon">✓</span>
+                <h1>TaskFlow</h1>
+            </div>
+
+            <p class="subtitle">
+                Organiza tus actividades y alcanza tus objetivos.
+            </p>
+
+            <div class="auth-tabs">
+                <button id="show-login" class="tab active" type="button">
+                    Iniciar sesión
+                </button>
+                <button id="show-register" class="tab" type="button">
+                    Registrarse
+                </button>
+            </div>
+
+            <!-- FORMULARIO LOGIN -->
+            <form id="login-form">
+                <h2>Bienvenido de nuevo</h2>
+
+                <label for="login-email">Correo electrónico</label>
+                <input
+                    type="email"
+                    id="login-email"
+                    placeholder="correo@ejemplo.com"
+                    required
+                >
+
+                <label for="login-password">Contraseña</label>
+                <input
+                    type="password"
+                    id="login-password"
+                    placeholder="Tu contraseña"
+                    required
+                >
+
+                <button type="submit" class="primary-btn">
+                    Iniciar sesión
+                </button>
+            </form>
+
+            <!-- FORMULARIO REGISTRO -->
+            <form id="register-form" class="hidden">
+                <h2>Crea tu cuenta</h2>
+
+                <label for="register-name">Nombre</label>
+                <input
+                    type="text"
+                    id="register-name"
+                    placeholder="Tu nombre"
+                    required
+                    minlength="2"
+                >
+
+                <label for="register-email">Correo electrónico</label>
+                <input
+                    type="email"
+                    id="register-email"
+                    placeholder="correo@ejemplo.com"
+                    required
+                >
+
+                <label for="register-password">Contraseña</label>
+                <input
+                    type="password"
+                    id="register-password"
+                    placeholder="Mínimo 6 caracteres"
+                    required
+                    minlength="6"
+                >
+
+                <button type="submit" class="primary-btn">
+                    Crear cuenta
+                </button>
+            </form>
+
+            <p id="auth-message" class="message"></p>
+        </section>
+
+        <!-- PANEL DE TAREAS -->
+        <section id="dashboard-section" class="hidden">
+
+            <header class="dashboard-header">
+                <div>
+                    <div class="brand">
+                        <span class="brand-icon">✓</span>
+                        <h1>TaskFlow</h1>
+                    </div>
+                    <p id="welcome-message"></p>
+                </div>
+
+                <button id="logout-btn" class="logout-btn" type="button">
+                    Cerrar sesión
+                </button>
+            </header>
+
+            <div class="dashboard-title">
+                <div>
+                    <h2>Mis tareas</h2>
+                    <p>Organiza y administra tus actividades.</p>
+                </div>
+            </div>
+
+            <!-- FORMULARIO DE TAREAS -->
+            <form id="task-form" class="task-form">
+                <h3 id="form-title">Agregar nueva tarea</h3>
+
+                <label for="task-title">Título</label>
+                <input
+                    type="text"
+                    id="task-title"
+                    placeholder="Ej. Terminar mi proyecto"
+                    maxlength="100"
+                    required
+                >
+
+                <label for="task-description">Descripción</label>
+                <textarea
+                    id="task-description"
+                    placeholder="Describe tu actividad..."
+                    maxlength="500"
+                    rows="3"
+                ></textarea>
+
+                <div class="form-actions">
+                    <button type="submit" id="save-task-btn" class="primary-btn">
+                        Agregar tarea
+                    </button>
+
+                    <button type="button" id="cancel-edit-btn" class="secondary-btn hidden">
+                        Cancelar
+                    </button>
+                </div>
+            </form>
+
+            <div class="task-summary">
+                <span id="task-count">0 tareas</span>
+                <span id="completed-count">0 completadas</span>
+            </div>
+
+            <div id="task-list" class="task-list"></div>
+
+            <p id="task-message" class="message"></p>
+
+        </section>
+
+    </main>
+
+    <script src="js/api.js"></script>
+    <script src="js/app.js"></script>
+
+</body>
+</html>
